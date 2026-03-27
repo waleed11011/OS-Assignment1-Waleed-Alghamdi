@@ -32,68 +32,85 @@ Document your development process as you work on the assignment. Add entries sho
 
 ## Your Development Log:
 
-### Entry 1 - [Date and Time]
-**What I did**: 
+### Entry 1 - [March 25, 2026, 7:15 PM]
+**What I did**: Set up the project and added my student ID
 
 **Details**: 
+- Created GitHub account with university email
+- Downloaded the project files to my computer
+- Opened the project in Visual Studio Code
+- Changed student ID on line 150 to my actual ID (445050004)
+  
+**Challenges**: It was my first time using GitHub and Visual Studio Code, so I was not sure how to run the project at the beginning
 
-**Challenges**: 
+**Solution**: I checked the instructions and tried running the program step by step until I understood how it works
 
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 45 minutes
 
 ---
 
-### Entry 2 - [Date and Time]
-**What I did**: 
+### Entry 2 - [March 26, 2026, 6:10 PM]
+**What I did**: Worked on Feature 1 (Process priority)
 
 **Details**: 
+- Added priority to each process
+- Modified the output to show the priority
+- Ran the program to check the result
+  
+**Challenges**: I was not sure where to add the priority in the code
 
-**Challenges**: 
+**Solution**: I checked the existing print statements and added it in the ready queue part
 
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 1 hour
 
 ---
 
-### Entry 3 - [Date and Time]
-**What I did**: 
+### Entry 3 - [March 26, 2026, 9:30 PM]
+**What I did**: Worked on Feature 2 (Count context switches)
 
 **Details**: 
+- Created a variable to count context switches
+- Incremented the counter during each context switch
+- Printed the total number at the end of the program
+  
+**Challenges**: I was not sure where to update the counter in the code
 
-**Challenges**: 
+**Solution**: I added the counter update in the part where context switching happens
 
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 50 minutes
 
 ---
 
-### Entry 4 - [Date and Time]
-**What I did**: 
+### Entry 4 - [March 27, 2026, 9:30 AM]
+**What I did**: Worked on Feature 3 (Waiting time and summary)
 
 **Details**: 
+- Added waiting time calculation for each process
+- Created a summary table to display results
+- Printed process name, burst time, and waiting time
+  
+**Challenges**: Calculating waiting time correctly was a bit difficult
 
-**Challenges**: 
+**Solution**: I tested the program multiple times and checked the output values
 
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 2 hours
 
 ---
 
-### Entry 5 - [Date and Time]
-**What I did**: 
+### Entry 5 - [March 27, 2026, 2:45 PM]
+**What I did**: Completed documentation files
 
 **Details**: 
+- Completed REFLECTION.md
+- Wrote answers in ANSWERS.md
+- Reviewed all files before submission
+  
+  
+**Challenges**: Organizing my answers and making sure everything was clear took some time
 
-**Challenges**: 
+**Solution**: I reviewed my work and improved the answers step by step
 
-**Solution**: 
-
-**Time spent**: 
+**Time spent**: 1 hour
 
 ---
 
@@ -112,10 +129,10 @@ Document your development process as you work on the assignment. Add entries sho
 
 ## Summary
 
-**Total time spent on assignment**: [X hours]
+**Total time spent on assignment**: [6 hours]
 
-**Most challenging part**: 
+**Most challenging part**: Understanding how the scheduler and ready queue work
 
-**Most interesting learning**: 
+**Most interesting learning**: Seeing how Round-Robin scheduling works step by step
 
-**What I would do differently next time**: 
+**What I would do differently next time**: I would start earlier and test each feature more carefully

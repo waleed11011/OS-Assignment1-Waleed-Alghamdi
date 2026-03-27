@@ -30,6 +30,9 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     private int priority; // Feature 1: added priority to process and printed it in the queue
+
+    private long creationTime; // Feature 3: Added waiting time tracking and summary table
+    private long waitingTime; // Feature 3: Added waiting time tracking and summary table
     // Constructor to initialize the process with name, burst time, and time quantum
 
     public Process(String name, int burstTime, int timeQuantum) {
@@ -38,6 +41,10 @@ class Process implements Runnable {
         this.timeQuantum = timeQuantum;
         this.remainingTime = burstTime; // Initially, remaining time is equal to the burst time
         this.priority = (int) (Math.random() * 5) + 1; // Feature 1:
+
+        this.creationTime = System.currentTimeMillis(); // Feature 3:
+
+        this.waitingTime = 0; // Feature 3:
     }
 
     // This method will be called when the thread for this process is started
@@ -74,6 +81,10 @@ class Process implements Runnable {
         }
 
         remainingTime -= runTime; // Deduct the run time from the remaining time
+
+        if (remainingTime <= 0) {
+            waitingTime = System.currentTimeMillis() - creationTime - burstTime; // Feature 3:
+        }
         int overallProgress = (int) (((double) (burstTime - remainingTime) / burstTime) * 100);
         String overallProgressBar = createProgressBar(overallProgress, 20);
 
@@ -145,6 +156,11 @@ class Process implements Runnable {
         return priority;
     }
 
+    // Feature 3:
+    public long getWaitingTime() {
+        return waitingTime;
+    }
+
     // Check if the process has finished (i.e., no remaining time)
     public boolean isFinished() {
         return remainingTime <= 0;
@@ -174,6 +190,8 @@ public class SchedulerSimulation {
 
         // Map to associate each thread with its respective process object
         Map<Thread, Process> processMap = new HashMap<>();
+
+        java.util.List<Process> allProcesses = new java.util.ArrayList<>(); // Feature 3:
 
         // Print simulation header with elegant formatting
         System.out.println("\n" + Colors.BOLD + Colors.BRIGHT_CYAN +
@@ -210,6 +228,8 @@ public class SchedulerSimulation {
             // Create a new process object with a unique name, burst time, and the defined
             // time quantum
             Process process = new Process("P" + i, burstTime, timeQuantum);
+
+            allProcesses.add(process); // Feature 3:
 
             // Add the process to the ready queue and the map
             addProcessToQueue(process, processQueue, processMap);
@@ -281,6 +301,14 @@ public class SchedulerSimulation {
             }
         }
         System.out.println("Total context switches: " + contextSwitches); // Feature 2:
+
+        System.out.println("\nProcess Summary:"); // Feature 3:
+        System.out.println("Name\tBurst Time\tWaiting Time"); // Feature 3:
+
+        for (Process p : allProcesses) {
+            System.out.println(p.getName() + "\t" + p.getBurstTime() + "ms\t\t" + p.getWaitingTime() + "ms");
+        }
+
         // End of the scheduler simulation
         System.out.println(Colors.BOLD + Colors.BRIGHT_GREEN +
                 "╔════════════════════════════════════════════════════════════════════════════════╗" +
